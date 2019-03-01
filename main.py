@@ -174,6 +174,11 @@ class TheGame:
         if self.people == 0:
             self.alive = False
 
+    def check(self):
+        if self.people < 1 or self.happiness<1:
+            self.alive = False
+            print("Вы успешно развалили своё королевство!")
+
     def develop(self):
         if len(self.developments):
             for i in self.developments:
@@ -215,6 +220,7 @@ class TheGame:
         self.develop()
         self.eventise()
         self.chaos()
+        self.check()
         self.year += 1
 
     def run(self):
